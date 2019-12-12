@@ -1,0 +1,18 @@
+2019-12-12 21:17:12 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:dataofs:replace:10}(tamper{TCP:ack:corrupt},),)-| \/ (ID 9acgjf38) to port 80
+2019-12-12 21:17:12 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:17:12 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:17:12 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:17:12 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:17:12 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:17:12 DEBUG:[ENGINE] NFQueue Initialized after 0
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to facebook.com:443 
+2019-12-12 21:17:23 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-12 21:17:25 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:17:25 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:17:25 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:17:25 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:17:25 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: https://facebook.com - Using Strategy #2

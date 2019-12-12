@@ -1,0 +1,44 @@
+2019-12-12 21:15:48 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:options-md5header:corrupt}(tamper{TCP:flags:replace:R},))-| \/ (ID c7drxzi1) to port 80
+2019-12-12 21:15:48 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:15:48 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:48 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:15:48 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:48 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:15:48 DEBUG:[ENGINE] NFQueue Initialized after 0
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02019-12-12 21:15:48 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [S] 24990: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [S] 24990: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.3:59772 [SA] 46526: 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02019-12-12 21:15:48 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [A] 57757: 
+2019-12-12 21:15:48 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:options-md5header:corrupt}(tamper{TCP:flags:replace:R},))-|
+2019-12-12 21:15:48 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [A] 57757: 
+2019-12-12 21:15:48 DEBUG:[ENGINE]   - Tampering TCP field `options-md5header` () by corrupt (to 3d7f7a44f0fe39b83ef7b4fd60094402)
+2019-12-12 21:15:48 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to R)
+2019-12-12 21:15:48 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [A] 57757: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [R] None: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [PA] 36560: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-12 21:15:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.3:59772 [FA] 57985: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [PA] 36560: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-12 21:15:48 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [A] 57680: 
+2019-12-12 21:15:48 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:options-md5header:corrupt}(tamper{TCP:flags:replace:R},))-|
+2019-12-12 21:15:48 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [A] 57680: 
+2019-12-12 21:15:48 DEBUG:[ENGINE]   - Tampering TCP field `options-md5header` () by corrupt (to 68b8c2f0edb6944071158840b21f6a3b)
+2019-12-12 21:15:48 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to R)
+2019-12-12 21:15:48 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [A] 57680: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [R] None: 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (52) Empty reply from server
+2019-12-12 21:15:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.3:59772 [RA] 57905: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Detected GFW censorship - strategy failed.
+2019-12-12 21:15:48 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [FA] 57679: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59772 --> 185.60.216.35:80 [FA] 57679: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.3:59772 [RA] 57904: 
+2019-12-12 21:15:48 DEBUG:[ENGINE] Detected GFW censorship - strategy failed.
+2019-12-12 21:15:48 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-12 21:15:50 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:15:50 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:50 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:15:50 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:50 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #14

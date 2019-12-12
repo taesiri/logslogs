@@ -1,0 +1,17 @@
+2019-12-12 21:30:07 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:load:corrupt}(tamper{IP:ttl:replace:8},),)-| \/ (ID oqbenpfo) to port 80
+2019-12-12 21:30:07 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:30:07 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:30:07 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:30:07 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:30:07 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:30:07 DEBUG:[ENGINE] NFQueue Initialized after 0
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0curl: (7) Failed to connect to github.com port 443: Connection refused
+2019-12-12 21:30:28 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-12 21:30:30 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:30:30 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:30:30 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:30:30 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:30:30 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: https://github.com - Using Strategy #5

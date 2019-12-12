@@ -1,0 +1,42 @@
+2019-12-12 21:15:46 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-| \/ (ID 8h24kx8o) to port 80
+2019-12-12 21:15:46 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:15:46 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:46 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:15:46 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:46 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:15:46 DEBUG:[ENGINE] NFQueue Initialized after 0
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02019-12-12 21:15:46 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [S] 30485: 
+2019-12-12 21:15:46 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [S] 30485: 
+2019-12-12 21:15:46 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.7:40180 [SA] 47583: 
+2019-12-12 21:15:46 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [A] 58814: 
+2019-12-12 21:15:46 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-|
+2019-12-12 21:15:46 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [A] 58814: 
+2019-12-12 21:15:46 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to RA)
+2019-12-12 21:15:46 DEBUG:[ENGINE]   - Tampering TCP field `chksum` (None) by corrupt (to 35227)
+2019-12-12 21:15:46 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [A] 58814: 
+2019-12-12 21:15:46 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [RA] 35227: 
+2019-12-12 21:15:46 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [PA] 37617: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-12 21:15:46 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [PA] 37617: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-12 21:15:46 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.7:40180 [A] 58967: 
+2019-12-12 21:15:47 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.7:40180 [PA] 60418: b'HTTP/1.1 403 Forbidden\r\nDate: Thu, 12 Dec 2019 21:15:47 GMT\r\nConnection: close\r\n\r\n'
+2019-12-12 21:15:47 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.7:40180 [PA] 45954: b'<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR14(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
+2019-12-12 21:15:47 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.7:40180 [FA] 58580: 
+100   304    0   304    0     0    678      0 --:--:-- --:--:-- --:--:--   678
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR14(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>
+
+2019-12-12 21:15:47 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [A] 58656: 
+2019-12-12 21:15:47 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-|
+2019-12-12 21:15:47 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [A] 58656: 
+2019-12-12 21:15:47 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to RA)
+2019-12-12 21:15:47 DEBUG:[ENGINE]   - Tampering TCP field `chksum` (None) by corrupt (to 51894)
+2019-12-12 21:15:47 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [A] 58656: 
+2019-12-12 21:15:47 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:40180 --> 185.60.216.35:80 [RA] 51894: 
+2019-12-12 21:15:47 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-12 21:15:49 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-12 21:15:49 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:49 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-12 21:15:49 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-12 21:15:49 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #12
