@@ -1,0 +1,96 @@
+* Rebuilt URL to: https://youtube.com/
+*   Trying 172.217.23.110...
+* TCP_NODELAY set
+*   Trying 2a00:1450:400e:80a::200e...
+* TCP_NODELAY set
+* Immediate connect fail for 2a00:1450:400e:80a::200e: Cannot assign requested address
+* Connected to youtube.com (172.217.23.110) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: /etc/ssl/certs
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Certificate Status (22):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS handshake, Unknown (8):
+{ [15 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [3495 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [78 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [52 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Client hello (1):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Certificate Status (22):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [52 bytes data]
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: C=US; ST=California; L=Mountain View; O=Google LLC; CN=*.google.com
+*  start date: Nov 13 09:08:44 2019 GMT
+*  expire date: Feb  5 09:08:44 2020 GMT
+*  subjectAltName: host "youtube.com" matched cert's "youtube.com"
+*  issuer: C=US; O=Google Trust Services; CN=GTS CA 1O1
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* Using Stream ID: 1 (easy handle 0x55a74eebd580)
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+> GET / HTTP/2
+> Host: youtube.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Certificate Status (22):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [256 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [256 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+* Connection state changed (MAX_CONCURRENT_STREAMS updated)!
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+< HTTP/2 301 
+< location: https://www.youtube.com/
+< strict-transport-security: max-age=31536000; includeSubDomains; preload
+< content-length: 0
+< date: Fri, 13 Dec 2019 17:58:48 GMT
+< content-type: text/html
+< server: YouTube Frontend Proxy
+< x-xss-protection: 0
+< alt-svc: quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443"; ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000
+< 
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* Connection #0 to host youtube.com left intact

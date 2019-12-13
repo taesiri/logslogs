@@ -1,0 +1,12 @@
+* Rebuilt URL to: http://youtube.com/
+*   Trying 172.217.23.110...
+* TCP_NODELAY set
+* Connected to youtube.com (172.217.23.110) port 80 (#0)
+> GET / HTTP/1.1
+> Host: youtube.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+* Recv failure: Connection reset by peer
+* stopped the pause stream!
+* Closing connection 0

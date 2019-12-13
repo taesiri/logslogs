@@ -1,0 +1,65 @@
+2019-12-13 17:58:51 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:dataofs:replace:10}(tamper{IP:ttl:replace:10},),)-| \/ (ID z6ny7z7t) to port 80
+2019-12-13 17:58:51 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:58:51 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:58:51 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:58:51 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:58:51 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:58:51 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://youtube.com/
+*   Trying 172.217.23.110...
+* TCP_NODELAY set
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [S] 42042: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [S] 42042: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.21:43864 [SA] 62624: 
+* Connected to youtube.com (172.217.23.110) port 80 (#0)
+> GET / HTTP/1.1
+> Host: youtube.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [A] 8320: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [A] 8320: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [PA] 21084: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:58:51 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:dataofs:replace:10}(tamper{IP:ttl:replace:10},),)-|
+2019-12-13 17:58:51 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [PA] 21084: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:58:51 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (5) by replace (to 10)
+2019-12-13 17:58:51 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 17:58:51 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [PA] None: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:58:51 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [PA] 21084: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.21:43864 [A] 8494: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.21:43864 [A] 8494: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.21:43864 [PA] 53038: b'HTTP/1.0 400 Bad Request\r\nContent-Type: text/html; charset=UTF-8\r\nReferrer-Policy: no-referrer\r\nContent-Length: 1555\r\nDate: Fri, 13 Dec 2019 17:58:51 GMT\r\n\r\n<!DOCTYPE html>\n<html lang=en>\n  <meta charset=utf-8>\n  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">\n  <title>Error 400 (Bad Request)!!1</title>\n  <style>\n    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png)'
+* HTTP 1.0, assume close after body
+< HTTP/1.0 400 Bad Request
+< Content-Type: text/html; charset=UTF-8
+< Referrer-Policy: no-referrer
+< Content-Length: 1555
+< Date: Fri, 13 Dec 2019 17:58:51 GMT
+< 
+{ [1233 bytes data]
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.21:43864 [PA] 2957: b' no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}\n  </style>\n  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>\n  <p><b>400.</b> <ins>That\xe2\x80\x99s an error.</ins>\n  <p>Your client has issued a malformed or illegal request.  <ins>That\xe2\x80\x99s all we know.</ins>\n'
+* Closing connection 0
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 400 (Bad Request)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>400.</b> <ins>That’s an error.</ins>
+  <p>Your client has issued a malformed or illegal request.  <ins>That’s all we know.</ins>
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.21:43864 [FA] 6781: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [A] 6833: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [A] 6833: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [A] 6489: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:43864 --> 172.217.23.110:80 [A] 6489: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.21:43864 [A] 6781: 
+2019-12-13 17:58:51 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 17:58:53 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:58:53 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:58:53 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:58:53 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:58:53 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://youtube.com - Using Strategy #1 - On Port:80

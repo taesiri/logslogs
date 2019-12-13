@@ -1,0 +1,41 @@
+2019-12-13 17:59:03 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:options-md5header:corrupt}(tamper{TCP:flags:replace:R},))-| \/ (ID 6q4ghjn0) to port 80
+2019-12-13 17:59:03 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:59:03 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:03 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:03 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:03 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:03 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://youtube.com/
+*   Trying 172.217.23.110...
+* TCP_NODELAY set
+2019-12-13 17:59:03 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [S] 64419: 
+2019-12-13 17:59:03 DEBUG:[ENGINE] Sending packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [S] 64419: 
+2019-12-13 17:59:03 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.13:57024 [SA] 36127: 
+2019-12-13 17:59:03 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [A] 47358: 
+2019-12-13 17:59:03 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:options-md5header:corrupt}(tamper{TCP:flags:replace:R},))-|
+2019-12-13 17:59:03 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [A] 47358: 
+* Connected to youtube.com (172.217.23.110) port 80 (#0)
+> GET / HTTP/1.1
+> Host: youtube.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 17:59:03 DEBUG:[ENGINE]   - Tampering TCP field `options-md5header` () by corrupt (to aacce7b786287b9f378f1f039c780dbc)
+2019-12-13 17:59:03 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to R)
+2019-12-13 17:59:03 DEBUG:[ENGINE] Sending packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [A] 47358: 
+2019-12-13 17:59:03 DEBUG:[ENGINE] Sending packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [R] None: 
+2019-12-13 17:59:03 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [PA] 60122: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:03 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.13:57024 [FA] 47586: 
+* Empty reply from server
+* Connection #0 to host youtube.com left intact
+2019-12-13 17:59:03 DEBUG:[ENGINE] Sending packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [PA] 60122: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:03 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [FA] 47281: 
+2019-12-13 17:59:03 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.13:57024 [RA] 47583: 
+2019-12-13 17:59:03 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 17:59:03 DEBUG:[ENGINE] Sending packet TCP 172.17.0.13:57024 --> 172.217.23.110:80 [FA] 47281: 
+2019-12-13 17:59:05 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:59:05 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:05 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:05 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:05 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://youtube.com - Using Strategy #14 - On Port:80

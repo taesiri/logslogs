@@ -1,0 +1,90 @@
+* Rebuilt URL to: https://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+* Connected to facebook.com (185.60.216.35) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: /etc/ssl/certs
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Certificate Status (22):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS handshake, Unknown (8):
+{ [15 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Certificate Status (22):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Certificate Status (22):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [2817 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [79 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [36 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Client hello (1):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Certificate Status (22):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [36 bytes data]
+* SSL connection using TLSv1.3 / TLS_CHACHA20_POLY1305_SHA256
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: C=US; ST=California; L=Menlo Park; O=Facebook, Inc.; CN=*.facebook.com
+*  start date: Nov  6 00:00:00 2019 GMT
+*  expire date: Feb  4 12:00:00 2020 GMT
+*  subjectAltName: host "facebook.com" matched cert's "facebook.com"
+*  issuer: C=US; O=DigiCert Inc; OU=www.digicert.com; CN=DigiCert SHA2 High Assurance Server CA
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* Using Stream ID: 1 (easy handle 0x563a37ac4580)
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+> GET / HTTP/2
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Certificate Status (22):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [156 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+* Connection state changed (MAX_CONCURRENT_STREAMS updated)!
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS Unknown, Unknown (23):
+} [1 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS Unknown, Unknown (23):
+{ [1 bytes data]
+< HTTP/2 301 
+< location: https://www.facebook.com/
+< strict-transport-security: max-age=15552000; preload
+< content-type: text/html; charset="utf-8"
+< x-fb-debug: Ftcog7rrmugz2gUM0kk+raTFUeVsPRv4oEmHLWxLr5urE6jaYyVKokh3GoVWHZomy61IqVwx0ZRqYXruWxr0Ag==
+< content-length: 0
+< date: Fri, 13 Dec 2019 18:43:30 GMT
+< alt-svc: h3-24=":443"; ma=3600
+< 
+{ [0 bytes data]
+* Connection #0 to host facebook.com left intact

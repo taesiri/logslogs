@@ -1,0 +1,126 @@
+2019-12-13 22:17:21 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-| \/ (ID zbhzfs0q) to port 80
+2019-12-13 22:17:21 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:17:21 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:21 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:21 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:21 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:21 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:17:21 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [S] 32390: 
+2019-12-13 22:17:21 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [S] 32390: 
+2019-12-13 22:17:21 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [SA] 57458: 
+2019-12-13 22:17:21 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [A] 32242: 
+2019-12-13 22:17:21 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [A] 32242: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:17:21 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 11045: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:21 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:21 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 11045: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:21 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 18)
+2019-12-13 22:17:21 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:21 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:21 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 11045: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:21 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 32419: 
+2019-12-13 22:17:21 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 48741: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [PA] 15686: b'HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=utf-8\r\nDate: Fri, 13 Dec 2019 18:47:22 GMT\r\nContent-Length: 2959\r\nConnection: close\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 25651: b'<!DOCTYPE html>\n<html lang="en" id="facebook">\n  <head>\n    <title>Facebook | Error</title>\n    <meta charset="utf-8">\n    <meta http-equiv="cache-control" content="no-cache">\n    <meta http-equiv="cache-control" content="no-store">\n    <meta http-equiv="cache-control" content="max-age=0">\n    <meta http-equiv="expires" content="-1">\n    <meta http-equiv="pragma" content="no-cache">\n    <meta name="robots" content="noindex,nofollow">\n    <style>\n      html, body {\n        color: #141823;\n        background-color: #e9eaed;\n        font-family: Helvetica, Lucida Grande, Arial,\n                     Tahoma, Verdana, sans-serif;\n        margin: 0;\n        padding: 0;\n        text-align: center;\n      }\n\n      #header {\n        height: 30px;\n        padding-bottom: 10px;\n        padding-top: 10px;\n        text-align: center;\n      }\n\n      #icon {\n        width: 30px;\n      }\n\n      h1 {\n        font-size: 18px;\n      }\n\n      p {\n        font-size: 13px;\n      }\n\n      #footer {\n        border-top: 1px solid #ddd;\n        color: #9197a3;\n        font-size: 12px;\n        padding: 5px 8px 6px 0;\n      }\n    </style>\n  </head>\n  <body>\n    <div id="header">\n      <a href="//www.facebook.com/">\n        <img id="icon" src="//static.facebook.com/images/logos/facebook_2x.png" />\n      </a>\n    </div>\n    <div id="core">\n      <h1 id="sorry">Sorry, something went wrong'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 6157: b'.</h1>\n      <p id="promise">\n        We\'re working on it and we\'ll get it fixed as soon as we can.\n      </p>\n      <p id="back-link">\n        <a id="back" href="//www.facebook.com/">Go Back</a>\n      </p>\n      <div id="footer">\n        Facebook\n        <span id="copyright">\n          &copy; 2019\n        </span>\n        <span id="help-link">\n          &#183;\n          <a id="help" href="//www.facebook.com/help/">Help Center</a>\n        </span>\n      </div>\n    </div>\n    <script>\n      document.getElementById(\'back\').onclick = function() {\n        if (history.length > 1) {\n          history.back();\n          return false;\n        }\n      };\n\n      // Adjust the display based on the window size\n      if (window.innerHeight < 80 || window.innerWidth < 80) {\n        // Blank if window is too small\n        document.body.style.display = \'none\';\n      };\n      if (window.innerWidth < 200 || window.innerHeight < 150) {\n        document.getElementById(\'back-link\').style.display = \'none\';\n        document.getElementById(\'help-link\').style.display = \'none\';\n      };\n      if (window.innerWidth < 200) {\n        document.getElementById(\'sorry\').style.fontSize = \'16px\';\n      };\n      if (window.innerWidth < 150) {\n        document.getElementById(\'promise\').style.display = \'none\';\n      };\n      if (window.innerHeight < 150) {\n        document.getElementById(\'sorry\')'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [PA] 31976: b".style.margin = '4px 0 0 0';\n        document.getElementById('sorry').style.fontSize = '14px';\n        document.getElementById('promise').style.display = 'none';\n      };\n    </script>\n  </body>\n</html>\n"
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [FA] 29099: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [FA] 29058: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 10729: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:22 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 10729: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 12)
+2019-12-13 22:17:22 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:22 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 10729: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 45003: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 45005: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 32003: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 32003: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [PA] 15099: b'HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=utf-8\r\nDate: Fri, 13 Dec 2019 18:47:22 GMT\r\nContent-Length: 2959\r\nConnection: close\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 10316: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:22 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 10316: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 236)
+2019-12-13 22:17:22 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:22 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 10316: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 44178: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 44181: 
+2019-12-13 22:17:22 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [PA] 14226: b'HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=utf-8\r\nDate: Fri, 13 Dec 2019 18:47:22 GMT\r\nContent-Length: 2959\r\nConnection: close\r\n\r\n'
+2019-12-13 22:17:23 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 17390: 
+2019-12-13 22:17:23 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 17390: 
+2019-12-13 22:17:23 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 9515: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:23 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:23 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 9515: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:23 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 59)
+2019-12-13 22:17:23 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:23 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:23 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 9515: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:23 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 42577: 
+2019-12-13 22:17:23 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39692 [A] 42580: 
+2019-12-13 22:17:24 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 59208: 
+2019-12-13 22:17:24 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 59208: 
+2019-12-13 22:17:25 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 7915: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:25 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:25 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 7915: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:25 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 126)
+2019-12-13 22:17:25 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:25 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:25 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 7915: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:27 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 13391: 
+2019-12-13 22:17:27 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 13391: 
+2019-12-13 22:17:28 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 4716: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:28 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:28 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 4716: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:28 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 63)
+2019-12-13 22:17:28 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:28 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:28 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 4716: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:30 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 23548: 
+2019-12-13 22:17:30 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 23548: 
+2019-12-13 22:17:32 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 51020: 
+2019-12-13 22:17:32 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 51020: 
+2019-12-13 22:17:34 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 63850: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:34 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:34 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 63850: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:34 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 225)
+2019-12-13 22:17:34 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:34 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:34 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 63850: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:35 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 5199: 
+2019-12-13 22:17:35 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 5199: 
+2019-12-13 22:17:47 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 51051: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:47 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 22:17:47 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 51051: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:47 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 209)
+2019-12-13 22:17:47 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 22:17:47 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:47 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [PA] 51051: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:48 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 5891: 
+2019-12-13 22:17:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 5891: 
+2019-12-13 22:17:49 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 34890: 
+2019-12-13 22:17:49 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 34890: 
+2019-12-13 22:17:51 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 54606: 
+2019-12-13 22:17:51 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 54606: 
+* Operation timed out after 30002 milliseconds with 0 bytes received
+* stopped the pause stream!
+* Closing connection 0
+2019-12-13 22:17:51 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [FA] 2216: 
+2019-12-13 22:17:51 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:17:51 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [FA] 2216: 
+2019-12-13 22:17:53 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:17:53 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:53 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:53 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:53 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #3 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-3-80.txt

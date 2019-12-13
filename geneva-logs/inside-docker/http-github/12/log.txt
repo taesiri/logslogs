@@ -1,0 +1,53 @@
+2019-12-13 18:14:17 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-| \/ (ID 3s44j3rs) to port 80
+2019-12-13 18:14:17 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:17 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:17 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:17 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:17 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:17 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://github.com/
+*   Trying 140.82.113.4...
+* TCP_NODELAY set
+2019-12-13 18:14:17 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [S] 18642: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [S] 18642: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.2:46228 [SA] 35404: 
+* Connected to github.com (140.82.113.4) port 80 (#0)
+> 2019-12-13 18:14:17 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [A] 46635: 
+GET / HTTP/1.1
+> Host: github.com
+>2019-12-13 18:14:17 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-|
+ User-Agent: curl/7.58.0
+> Accept: */*
+>2019-12-13 18:14:17 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [A] 46635: 
+ 
+2019-12-13 18:14:17 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to RA)
+2019-12-13 18:14:17 DEBUG:[ENGINE]   - Tampering TCP field `chksum` (None) by corrupt (to 36825)
+2019-12-13 18:14:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [A] 46635: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [RA] 36825: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [PA] 44493: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [PA] 44493: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:17 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.2:46228 [A] 46790: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.2:46228 [PA] 57726: b'HTTP/1.1 301 Moved Permanently\r\nDate: Fri, 13 Dec 2019 18:14:17 GMT\r\nContent-Length: 0\r\nLocation: https://github.com/\r\nConnection: keep-alive\r\n\r\n'
+<2019-12-13 18:14:17 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [A] 46408: 
+ HTTP/1.1 301 Moved Permanently
+< Date: Fri, 13 Dec 2019 18:14:17 GMT
+< Content-Length: 0
+< Location: https://github.com/
+< Connection: keep-alive
+< 
+* Connection #0 to host github.com left intact
+2019-12-13 18:14:17 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-|
+2019-12-13 18:14:17 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [A] 46408: 
+2019-12-13 18:14:17 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to RA)
+2019-12-13 18:14:17 DEBUG:[ENGINE]   - Tampering TCP field `chksum` (None) by corrupt (to 9637)
+2019-12-13 18:14:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [A] 46408: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [RA] 9637: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [FA] 46407: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.2:46228 --> 140.82.113.4:80 [FA] 46407: 
+2019-12-13 18:14:17 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 18:14:19 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:19 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:19 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:19 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:19 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://github.com - Using Strategy #12 - On Port:80

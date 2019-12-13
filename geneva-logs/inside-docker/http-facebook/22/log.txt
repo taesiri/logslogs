@@ -1,0 +1,47 @@
+2019-12-13 17:59:49 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:S]-duplicate(tamper{TCP:flags:replace:SA},)-| \/ (ID ndcwwayb) to port 80
+2019-12-13 17:59:49 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:59:49 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:49 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:49 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:49 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:49 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [S] 11555: 
+2019-12-13 17:59:49 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:S]-duplicate(tamper{TCP:flags:replace:SA},)-|
+2019-12-13 17:59:49 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [S] 11555: 
+2019-12-13 17:59:49 DEBUG:[ENGINE]   - Tampering TCP field `flags` (S) by replace (to SA)
+2019-12-13 17:59:49 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [SA] None: 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [S] 11555: 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49666 [SA] 35838: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [A] 47069: 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [A] 47069: 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [PA] 25872: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:49 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [PA] 25872: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49666 [A] 47222: 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49666 [PA] 40089: b'HTTP/1.1 403 Forbidden\r\nDate: Fri, 13 Dec 2019 17:59:49 GMT\r\nConnection: close\r\n\r\n<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
+< HTTP/1.1 403 Forbidden
+< Date: Fri, 13 Dec 2019 17:59:49 GMT
+< Connection: close
+< 
+{ [304 bytes data]
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49666 [FA] 46835: 
+* Closing connection 0
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>
+
+2019-12-13 17:59:49 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [A] 46599: 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49666 --> 185.60.216.35:80 [A] 46599: 
+2019-12-13 17:59:49 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 17:59:51 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:59:51 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:51 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:51 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:51 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #22 - On Port:80

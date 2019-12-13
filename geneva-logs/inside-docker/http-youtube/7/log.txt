@@ -1,0 +1,47 @@
+2019-12-13 17:58:57 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:S]-duplicate(,tamper{TCP:load:corrupt})-| \/ (ID qgh32dz3) to port 80
+2019-12-13 17:58:57 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:58:57 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:58:57 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:58:57 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:58:57 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:58:57 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://youtube.com/
+*   Trying 172.217.23.110...
+* TCP_NODELAY set
+2019-12-13 17:58:57 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [S] 37954: 
+2019-12-13 17:58:57 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:S]-duplicate(,tamper{TCP:load:corrupt})-|
+2019-12-13 17:58:57 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [S] 37954: 
+2019-12-13 17:58:57 DEBUG:[ENGINE]   - Tampering TCP field `load` () by corrupt (to 4d0sy2xety)
+2019-12-13 17:58:57 DEBUG:[ENGINE] Sending packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [S] 37954: 
+2019-12-13 17:58:57 DEBUG:[ENGINE] Sending packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [S] None: b'4d0sy2xety'
+2019-12-13 17:58:57 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.8:60890 [SA] 22957: 
+* Connected to youtube.com (172.217.23.110) port 80 (#0)
+> GET / HTTP/1.1
+> Host: youtube.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 17:58:57 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [A] 34188: 
+2019-12-13 17:58:57 DEBUG:[ENGINE] Sending packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [A] 34188: 
+2019-12-13 17:58:57 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [PA] 46952: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:58:57 DEBUG:[ENGINE] Sending packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [PA] 46952: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:58:57 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.8:60890 [A] 34342: 
+2019-12-13 17:59:58 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [A] 34114: 
+2019-12-13 17:59:58 DEBUG:[ENGINE] Sending packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [A] 34114: 
+2019-12-13 17:59:58 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.8:60890 [A] 34342: 
+2019-12-13 18:01:00 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [A] 34114: 
+2019-12-13 18:01:00 DEBUG:[ENGINE] Sending packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [A] 34114: 
+2019-12-13 18:01:00 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.8:60890 [A] 34342: 
+2019-12-13 18:01:54 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.8:60890 [FA] 34341: 
+* Empty reply from server
+* Connection #0 to host youtube.com left intact
+2019-12-13 18:01:54 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [FA] 34111: 
+2019-12-13 18:01:54 DEBUG:[ENGINE] Sending packet TCP 172.17.0.8:60890 --> 172.217.23.110:80 [FA] 34111: 
+2019-12-13 18:01:54 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.8:60890 [A] 34340: 
+2019-12-13 18:01:54 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 18:01:56 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:01:56 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:01:56 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:01:56 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:01:56 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://youtube.com - Using Strategy #7 - On Port:80

@@ -1,0 +1,14 @@
+* Rebuilt URL to: http://youtube.com/
+*   Trying 172.217.23.110...
+* TCP_NODELAY set
+*   Trying 2a00:1450:400e:80a::200e...
+* TCP_NODELAY set
+* Immediate connect fail for 2a00:1450:400e:80a::200e: Cannot assign requested address
+* Connected to youtube.com (172.217.23.110) port 80 (#0)
+> GET / HTTP/1.1
+> Host: youtube.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+* Empty reply from server
+* Connection #0 to host youtube.com left intact

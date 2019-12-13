@@ -1,0 +1,55 @@
+2019-12-13 22:19:26 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FREACN}(tamper{IP:ttl:replace:10},))-| \/ (ID nlbwjluy) to port 80
+2019-12-13 22:19:26 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:19:26 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:26 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:26 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:26 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:26 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [S] 58939: 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [S] 58939: 
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39720 [SA] 37382: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [A] 12175: 
+2019-12-13 22:19:27 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FREACN}(tamper{IP:ttl:replace:10},))-|
+2019-12-13 22:19:27 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [A] 12175: 
+2019-12-13 22:19:27 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to FREACN)
+2019-12-13 22:19:27 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 22:19:27 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [A] 12175: 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [FRAECN] None: 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [PA] 56513: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:27 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [PA] 56513: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39720 [A] 12352: 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39720 [PA] 17500: b'HTTP/1.1 403 Forbidden\r\nDate: Fri, 13 Dec 2019 18:49:27 GMT\r\nConnection: close\r\n\r\n'
+< HTTP/1.1 403 Forbidden
+< Date: Fri, 13 Dec 2019 18:49:27 GMT
+< Connection: close
+< 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39720 [PA] 231: b'<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
+{ [304 bytes data]
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39720 [FA] 11833: 
+* Closing connection 0
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>
+
+2019-12-13 22:19:27 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [A] 11709: 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:19:27 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FREACN}(tamper{IP:ttl:replace:10},))-|
+2019-12-13 22:19:27 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [A] 11709: 
+2019-12-13 22:19:27 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to FREACN)
+2019-12-13 22:19:27 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 22:19:27 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [A] 11709: 
+2019-12-13 22:19:27 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39720 --> 185.60.216.35:80 [FRAECN] None: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #16 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-16-80.txt

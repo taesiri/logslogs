@@ -1,0 +1,48 @@
+2019-12-13 18:14:23 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:flags:replace:F}(tamper{IP:len:replace:78},),)-| \/ (ID 770kwgua) to port 80
+2019-12-13 18:14:23 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:23 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:23 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:23 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:23 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:23 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://github.com/
+*   Trying 140.82.113.4...
+* TCP_NODELAY set
+2019-12-13 18:14:23 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [S] 49985: 
+2019-12-13 18:14:23 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [S] 49985: 
+2019-12-13 18:14:23 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47482 [SA] 19187: 
+* Connected to github.com (140.82.113.4) port 80 (#0)
+> GET / HTTP/1.1
+> Host: github.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 18:14:23 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [A] 30418: 
+2019-12-13 18:14:23 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [A] 30418: 
+2019-12-13 18:14:23 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [PA] 28276: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:23 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:flags:replace:F}(tamper{IP:len:replace:78},),)-|
+2019-12-13 18:14:23 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [PA] 28276: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:23 DEBUG:[ENGINE]   - Tampering TCP field `flags` (PA) by replace (to F)
+2019-12-13 18:14:23 DEBUG:[ENGINE]   - Tampering IP field `len` (114) by replace (to 78)
+2019-12-13 18:14:23 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [F] None: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:23 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [PA] 28276: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:23 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47482 [A] 30573: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47482 [PA] 42532: b'HTTP/1.1 301 Moved Permanently\r\nDate: Fri, 13 Dec 2019 18:14:23 GMT\r\nContent-Length: 0\r\nLocation: https://github.com/\r\nConnection: keep-alive\r\n\r\n'
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [A] 30191: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [A] 30191: 
+< HTTP/1.1 301 Moved Permanently
+< Date: Fri, 13 Dec 2019 18:14:23 GMT
+< Content-Length: 0
+< Location: https://github.com/
+< Connection: keep-alive
+< 
+* Connection #0 to host github.com left intact
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [FA] 30190: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47482 --> 140.82.113.4:80 [FA] 30190: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 18:14:26 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:26 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:26 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:26 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:26 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://github.com - Using Strategy #21 - On Port:80

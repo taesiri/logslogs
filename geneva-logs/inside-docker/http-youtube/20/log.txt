@@ -1,0 +1,43 @@
+2019-12-13 17:59:09 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-fragment{tcp:-1:True}-| \/ (ID 6kwyf6wf) to port 80
+2019-12-13 17:59:09 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:59:09 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:09 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:09 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:09 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:09 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://youtube.com/
+*   Trying 172.217.23.110...
+* TCP_NODELAY set
+2019-12-13 17:59:09 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [S] 14379: 
+2019-12-13 17:59:09 DEBUG:[ENGINE] Sending packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [S] 14379: 
+2019-12-13 17:59:09 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.15:57336 [SA] 64523: 
+* Connected to youtube.com (172.217.23.110) port 80 (#0)
+> GET / HTTP/1.1
+> Host: youtube.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 17:59:09 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [A] 10219: 
+2019-12-13 17:59:09 DEBUG:[ENGINE] Sending packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [A] 10219: 
+2019-12-13 17:59:09 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [PA] 22983: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:09 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-fragment{tcp:-1:True}-|
+2019-12-13 17:59:10 DEBUG:[ENGINE]   - Fragmenting given packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [PA] 22983: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:10 DEBUG:[ENGINE] Sending packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [PA] None: b'GET / HTTP/1.1\r\nHost: youtube.com\r\nUs'
+2019-12-13 17:59:10 DEBUG:[ENGINE] Sending packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [PA] None: b'er-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:10 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.15:57336 [A] 10411: 
+2019-12-13 17:59:10 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.15:57336 [A] 10373: 
+2019-12-13 18:00:14 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [A] 10145: 
+2019-12-13 18:00:14 DEBUG:[ENGINE] Sending packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [A] 10145: 
+2019-12-13 18:00:14 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.15:57336 [A] 10373: 
+2019-12-13 18:01:03 DEBUG:[ENGINE] Received packet: TCP 172.217.23.110:80 --> 172.17.0.15:57336 [FA] 10372: 
+* Empty reply from server
+* Connection #0 to host youtube.com left intact
+2019-12-13 18:01:03 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [FA] 10142: 
+2019-12-13 18:01:03 DEBUG:[ENGINE] Sending packet TCP 172.17.0.15:57336 --> 172.217.23.110:80 [FA] 10142: 
+2019-12-13 18:01:03 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 18:01:05 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:01:05 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:01:05 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:01:05 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:01:05 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://youtube.com - Using Strategy #20 - On Port:80

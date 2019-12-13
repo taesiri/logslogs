@@ -1,0 +1,82 @@
+2019-12-13 22:19:29 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FRAPUN}(tamper{TCP:options-md5header:corrupt},))-| \/ (ID lmv2995z) to port 80
+2019-12-13 22:19:29 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:29 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:29 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [S] 12876: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [S] 12876: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39722 [SA] 21779: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [A] 62100: 
+2019-12-13 22:19:29 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FRAPUN}(tamper{TCP:options-md5header:corrupt},))-|
+2019-12-13 22:19:29 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [A] 62100: 
+2019-12-13 22:19:29 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to FRAPUN)
+2019-12-13 22:19:29 DEBUG:[ENGINE]   - Tampering TCP field `options-md5header` () by corrupt (to d23512def2a1851d6b6ac08d0ec49842)
+2019-12-13 22:19:29 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [A] 62100: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [FRPAUN] None: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [PA] 40903: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:29 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [PA] 40903: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39722 [A] 62283: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39722 [PA] 50168: b'<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39722 [PA] 1390: b'HTTP/1.1 403 Forbidden\r\nDate: Fri, 13 Dec 2019 18:49:29 GMT\r\nConnection: close\r\n\r\n'
+< HTTP/1.1 403 Forbidden
+< Date: Fri, 13 Dec 2019 18:49:29 GMT
+< Connection: close
+< 
+{ [304 bytes data]
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39722 [FA] 61769: 
+* Closing connection 0
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>
+
+2019-12-13 22:19:29 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [A] 29632: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:19:29 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FRAPUN}(tamper{TCP:options-md5header:corrupt},))-|
+2019-12-13 22:19:29 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [A] 29632: 
+2019-12-13 22:19:29 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to FRAPUN)
+2019-12-13 22:19:29 DEBUG:[ENGINE]   - Tampering TCP field `options-md5header` () by corrupt (to 7fbf03552a2b834d51a992eb8da1f35f)
+2019-12-13 22:19:29 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [A] 29632: 
+2019-12-13 22:19:29 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39722 --> 185.60.216.35:80 [FRPAUN] None: 
+2019-12-13 22:19:29 ERROR:[ENGINE] Error in engine mysend.
+Traceback (most recent call last):
+  File "/home/taesiri/workspace/geneva/engine.py", line 117, in mysend
+    self.socket.send(packet.packet)
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/arch/linux.py", line 598, in send
+    sx = raw(ll(x))
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/compat.py", line 52, in raw
+    return bytes(x)
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/packet.py", line 487, in __bytes__
+    return self.build()
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/packet.py", line 607, in build
+    p = self.do_build()
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/packet.py", line 592, in do_build
+    pay = self.do_build_payload()
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/packet.py", line 579, in do_build_payload
+    return self.payload.do_build()
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/packet.py", line 592, in do_build
+    pay = self.do_build_payload()
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/packet.py", line 579, in do_build_payload
+    return self.payload.do_build()
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/packet.py", line 594, in do_build
+    return self.post_build(pkt, pay)
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/layers/inet.py", line 629, in post_build
+    p = p[:12] + chb((dataofs << 4) | orb(p[12]) & 0x0f) + p[13:]
+  File "/home/taesiri/.local/lib/python3.6/site-packages/scapy/compat.py", line 70, in chb
+    return struct.pack("!B", x)
+struct.error: ubyte format requires 0 <= number <= 255
+2019-12-13 22:19:31 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:19:31 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:31 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:31 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:31 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #17 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-17-80.txt

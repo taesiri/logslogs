@@ -1,0 +1,46 @@
+2019-12-13 18:14:24 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-tamper{TCP:options-uto:corrupt}-| \/ (ID qt2vxslg) to port 80
+2019-12-13 18:14:24 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:24 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:24 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:24 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:24 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:24 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://github.com/
+*   Trying 140.82.113.4...
+* TCP_NODELAY set
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [S] 25050: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [S] 25050: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.7:38104 [SA] 27449: 
+* Connected to github.com (140.82.113.4) port 80 (#0)
+> GET / HTTP/1.1
+> Host: github.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [A] 38680: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [A] 38680: 
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [PA] 36538: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:24 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-tamper{TCP:options-uto:corrupt}-|
+2019-12-13 18:14:24 DEBUG:[ENGINE]   - Tampering TCP field `options-uto` () by corrupt (to 89)
+2019-12-13 18:14:24 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [PA] None: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:24 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.7:38104 [A] 38835: 
+2019-12-13 18:14:25 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.7:38104 [PA] 50282: b'HTTP/1.1 301 Moved Permanently\r\nDate: Fri, 13 Dec 2019 18:14:25 GMT\r\nContent-Length: 0\r\nLocation: https://github.com/\r\nConnection: keep-alive\r\n\r\n'
+2019-12-13 18:14:25 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [A] 38453: 
+2019-12-13 18:14:25 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [A] 38453: 
+< HTTP/1.1 301 Moved Permanently
+< Date: Fri, 13 Dec 2019 18:14:25 GMT
+< Content-Length: 0
+< Location: https://github.com/
+< Connection: keep-alive
+< 
+* Connection #0 to host github.com left intact
+2019-12-13 18:14:25 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [FA] 38452: 
+2019-12-13 18:14:25 DEBUG:[ENGINE] Sending packet TCP 172.17.0.7:38104 --> 140.82.113.4:80 [FA] 38452: 
+2019-12-13 18:14:25 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.7:38104 [A] 38689: 
+2019-12-13 18:14:25 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 18:14:27 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:27 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:27 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:27 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:27 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://github.com - Using Strategy #23 - On Port:80

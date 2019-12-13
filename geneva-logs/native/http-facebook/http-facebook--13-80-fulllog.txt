@@ -1,0 +1,107 @@
+2019-12-13 22:18:48 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{IP:ttl:replace:10},))-| \/ (ID durc6o32) to port 80
+2019-12-13 22:18:48 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:18:48 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:48 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:18:48 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:48 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:18:48 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+2019-12-13 22:18:48 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [S] 28599: 
+2019-12-13 22:18:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [S] 28599: 
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:18:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39712 [SA] 22031: 
+2019-12-13 22:18:48 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [A] 62349: 
+2019-12-13 22:18:48 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{IP:ttl:replace:10},))-|
+2019-12-13 22:18:48 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [A] 62349: 
+2019-12-13 22:18:48 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to RA)
+2019-12-13 22:18:48 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 22:18:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [A] 62349: 
+2019-12-13 22:18:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [RA] None: 
+2019-12-13 22:18:48 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 41152: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 41152: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:18:48 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 40825: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 40825: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:49 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 40410: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:49 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 40410: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:49 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39710 --> 185.60.216.35:80 [FA] 23671: 
+2019-12-13 22:18:49 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39710 --> 185.60.216.35:80 [FA] 23671: 
+2019-12-13 22:18:50 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 39606: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:50 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 39606: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:51 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 38006: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:51 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 38006: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:51 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39708 --> 185.60.216.35:80 [FA] 42048: 
+2019-12-13 22:18:51 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39708 --> 185.60.216.35:80 [FA] 42048: 
+2019-12-13 22:18:54 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39710 --> 185.60.216.35:80 [FA] 19576: 
+2019-12-13 22:18:54 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39710 --> 185.60.216.35:80 [FA] 19576: 
+2019-12-13 22:18:55 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 34646: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:55 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 34646: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:56 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [S] 14383: 
+2019-12-13 22:18:56 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [S] 14383: 
+2019-12-13 22:18:56 DEBUG:[ENGINE] Received packet: TCP 35.224.99.156:80 --> 192.168.0.113:49518 [SA] 58238: 
+2019-12-13 22:18:56 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [A] 33059: 
+2019-12-13 22:18:56 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{IP:ttl:replace:10},))-|
+2019-12-13 22:18:56 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [A] 33059: 
+2019-12-13 22:18:56 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to RA)
+2019-12-13 22:18:56 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 22:18:56 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [A] 33059: 
+2019-12-13 22:18:56 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [RA] None: 
+2019-12-13 22:18:56 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 49020: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:56 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 49020: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:56 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 48799: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:56 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 48799: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:57 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 48582: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:57 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 48582: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:57 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 48141: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:57 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 48141: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:58 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 47245: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:18:58 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 47245: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:19:00 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 45480: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:19:00 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 45480: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:19:00 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39708 --> 185.60.216.35:80 [FA] 33607: 
+2019-12-13 22:19:00 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39708 --> 185.60.216.35:80 [FA] 33607: 
+2019-12-13 22:19:01 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 28249: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:01 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 28249: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:02 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39710 --> 185.60.216.35:80 [FA] 11383: 
+2019-12-13 22:19:02 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39710 --> 185.60.216.35:80 [FA] 11383: 
+2019-12-13 22:19:02 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [FPA] 30143: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:02 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [FPA] 30143: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:03 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 41869: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:19:03 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 41869: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:19:04 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [FPA] 39785: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:04 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [FPA] 39785: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:04 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39694 --> 185.60.216.35:80 [FA] 51348: 
+2019-12-13 22:19:04 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39694 --> 185.60.216.35:80 [FA] 51348: 
+2019-12-13 22:19:06 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [FA] 7819: 
+2019-12-13 22:19:06 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [FA] 7819: 
+2019-12-13 22:19:06 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39696 --> 185.60.216.35:80 [FA] 65361: 
+2019-12-13 22:19:06 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39696 --> 185.60.216.35:80 [FA] 65361: 
+2019-12-13 22:19:08 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39700 --> 185.60.216.35:80 [FA] 1838: 
+2019-12-13 22:19:08 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39700 --> 185.60.216.35:80 [FA] 1838: 
+2019-12-13 22:19:10 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 34701: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:19:10 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:49518 --> 35.224.99.156:80 [PA] 34701: b'GET / HTTP/1.1\r\nHost: connectivity-check.ubuntu.com\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+2019-12-13 22:19:14 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 15449: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:14 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [PA] 15449: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:14 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 48054: 
+2019-12-13 22:19:14 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 48054: 
+2019-12-13 22:19:14 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 19898: 
+2019-12-13 22:19:14 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 19898: 
+* Operation timed out after 30002 milliseconds with 0 bytes received
+* stopped the pause stream!
+* Closing connection 0
+2019-12-13 22:19:18 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [FA] 32324: 
+2019-12-13 22:19:18 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:19:18 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39712 --> 185.60.216.35:80 [FA] 32324: 
+2019-12-13 22:19:20 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:19:20 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:20 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:20 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:20 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #13 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-13-80.txt

@@ -1,0 +1,50 @@
+2019-12-13 22:17:59 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:load:corrupt}(tamper{TCP:ack:corrupt},),)-| \/ (ID pfc61s1e) to port 80
+2019-12-13 22:17:59 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:17:59 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:59 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:59 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:59 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:59 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:17:59 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [S] 18899: 
+2019-12-13 22:17:59 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [S] 18899: 
+2019-12-13 22:17:59 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39698 [SA] 34466: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:17:59 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [A] 9245: 
+2019-12-13 22:17:59 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [A] 9245: 
+2019-12-13 22:17:59 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [PA] 53583: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:59 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:load:corrupt}(tamper{TCP:ack:corrupt},),)-|
+2019-12-13 22:17:59 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [PA] 53583: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:59 DEBUG:[ENGINE]   - Tampering TCP field `load` (GET%20/%20HTTP/1.1%0D%0AHost%3A%20facebook.com%0D%0AUser-Agent%3A%20curl/7.58.0%0D%0AAccept%3A%20%2A/%2A%0D%0A%0D%0A) by corrupt (to bg2f10hsv3)
+2019-12-13 22:17:59 DEBUG:[ENGINE]   - Tampering TCP field `ack` (658063408) by corrupt (to 2557064874)
+2019-12-13 22:17:59 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [PA] None: b'bg2f10hsv3'
+2019-12-13 22:17:59 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [PA] 53583: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:59 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39698 [A] 9428: 
+2019-12-13 22:18:00 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39698 [PA] 16393: b'HTTP/1.1 403 Forbidden\r\nDate: Fri, 13 Dec 2019 18:48:00 GMT\r\nConnection: close\r\n\r\n'
+< HTTP/1.1 403 Forbidden
+< Date: Fri, 13 Dec 2019 18:48:00 GMT
+< Connection: close
+< 
+2019-12-13 22:18:00 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39698 [PA] 62864: b'<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
+{ [304 bytes data]
+2019-12-13 22:18:00 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39698 [FA] 8931: 
+* Closing connection 0
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>
+
+2019-12-13 22:18:00 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [A] 8835: 
+2019-12-13 22:18:00 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [A] 8835: 
+2019-12-13 22:18:00 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:18:02 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:18:02 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:02 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:18:02 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:02 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #6 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-6-80.txt

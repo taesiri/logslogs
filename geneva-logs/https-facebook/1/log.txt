@@ -1,21 +1,0 @@
-2019-12-12 21:17:11 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:dataofs:replace:10}(tamper{IP:ttl:replace:10},),)-| \/ (ID 7gz211y8) to port 80
-2019-12-12 21:17:11 DEBUG:[ENGINE] Configuring iptables rules
-2019-12-12 21:17:11 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
-2019-12-12 21:17:11 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
-2019-12-12 21:17:11 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
-2019-12-12 21:17:11 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
-2019-12-12 21:17:11 DEBUG:[ENGINE] NFQueue Initialized after 0
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     02019-12-12 21:17:17 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.3:59784 [PA] 34539: b'<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR14(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
-2019-12-12 21:17:17 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:59784 --> 185.60.216.35:80 [R] 40428: 
-2019-12-12 21:17:17 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:59784 --> 185.60.216.35:80 [R] 40428: 
-  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0
-curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to facebook.com:443 
-2019-12-12 21:17:22 DEBUG:[ENGINE] Shutting down NFQueue
-2019-12-12 21:17:24 DEBUG:[ENGINE] Configuring iptables rules
-2019-12-12 21:17:24 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
-2019-12-12 21:17:24 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
-2019-12-12 21:17:24 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
-2019-12-12 21:17:24 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
-Website: https://facebook.com - Using Strategy #1

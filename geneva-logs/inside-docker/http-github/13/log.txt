@@ -1,0 +1,41 @@
+2019-12-13 18:14:18 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{IP:ttl:replace:10},))-| \/ (ID 1n9ue4wc) to port 80
+2019-12-13 18:14:18 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:18 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:18 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:18 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:18 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:18 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://github.com/
+*   Trying 140.82.113.4...
+2019-12-13 18:14:18 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [S] 16403: 
+* TCP_NODELAY set
+2019-12-13 18:14:18 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [S] 16403: 
+2019-12-13 18:14:18 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.3:42736 [SA] 46398: 
+* Connected to github.com (140.82.113.4) port 80 (#0)
+> GET / HTTP/1.1
+> Host: github.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 18:14:18 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [A] 57629: 
+2019-12-13 18:14:18 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{IP:ttl:replace:10},))-|
+2019-12-13 18:14:18 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [A] 57629: 
+2019-12-13 18:14:18 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to RA)
+2019-12-13 18:14:18 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 18:14:18 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [A] 57629: 
+2019-12-13 18:14:18 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [RA] None: 
+2019-12-13 18:14:18 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [PA] 55487: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:18 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.3:42736 [FA] 57857: 
+* Empty reply from server
+* Connection #0 to host github.com left intact
+2019-12-13 18:14:18 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [PA] 55487: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:18 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [FA] 57553: 
+2019-12-13 18:14:18 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 18:14:18 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.3:42736 [RA] 57854: 
+2019-12-13 18:14:18 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:42736 --> 140.82.113.4:80 [FA] 57553: 
+2019-12-13 18:14:20 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:20 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:20 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:20 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:20 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://github.com - Using Strategy #13 - On Port:80

@@ -1,0 +1,16 @@
+* Rebuilt URL to: http://github.com/
+*   Trying 140.82.113.4...
+* TCP_NODELAY set
+* Connected to github.com (140.82.113.4) port 80 (#0)
+> GET / HTTP/1.1
+> Host: github.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 301 Moved Permanently
+< Date: Fri, 13 Dec 2019 18:14:12 GMT
+< Content-Length: 0
+< Location: https://github.com/
+< Connection: keep-alive
+< 
+* Connection #0 to host github.com left intact

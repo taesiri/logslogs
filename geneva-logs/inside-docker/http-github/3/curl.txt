@@ -1,0 +1,20 @@
+* Rebuilt URL to: http://github.com/
+*   Trying 140.82.113.4...
+* TCP_NODELAY set
+* Connected to github.com (140.82.113.4) port 80 (#0)
+> GET / HTTP/1.1
+> Host: github.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+* HTTP 1.0, assume close after body
+< HTTP/1.0 400 Bad Request
+< Cache-Control: no-cache
+< Connection: close
+< Content-Type: text/html
+< 
+{ [169 bytes data]
+* Closing connection 0
+<!DOCTYPE html><title>Malformed request</title>
+<body>We didn't receive a proper request from your browser. Please contact us if the problem persists.</body>
+</html>

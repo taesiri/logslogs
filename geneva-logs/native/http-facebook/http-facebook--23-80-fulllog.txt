@@ -1,0 +1,49 @@
+2019-12-13 22:19:47 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-tamper{TCP:options-uto:corrupt}-| \/ (ID p5e0dowk) to port 80
+2019-12-13 22:19:47 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:19:47 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:47 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:47 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:47 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:47 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:19:47 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [S] 49774: 
+2019-12-13 22:19:47 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [S] 49774: 
+2019-12-13 22:19:47 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39734 [SA] 46558: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:19:47 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [A] 21337: 
+2019-12-13 22:19:47 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [A] 21337: 
+2019-12-13 22:19:47 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [PA] 140: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:47 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-tamper{TCP:options-uto:corrupt}-|
+2019-12-13 22:19:47 DEBUG:[ENGINE]   - Tampering TCP field `options-uto` () by corrupt (to 80)
+2019-12-13 22:19:47 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:19:47 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39734 [A] 21517: 
+2019-12-13 22:19:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39734 [PA] 9219: b'<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
+2019-12-13 22:19:48 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [A] 851: 
+2019-12-13 22:19:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [A] 851: 
+2019-12-13 22:19:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39734 [FA] 20819: 
+2019-12-13 22:19:48 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [A] 849: 
+2019-12-13 22:19:48 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39734 --> 185.60.216.35:80 [A] 849: 
+2019-12-13 22:19:48 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39734 [PA] 25763: b'HTTP/1.1 403 Forbidden\r\nDate: Fri, 13 Dec 2019 18:49:48 GMT\r\nConnection: close\r\n\r\n'
+< HTTP/1.1 403 Forbidden
+< Date: Fri, 13 Dec 2019 18:49:48 GMT
+< Connection: close
+< 
+{ [304 bytes data]
+* Closing connection 0
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>
+
+2019-12-13 22:19:48 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:19:50 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:19:50 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:50 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:19:50 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:19:50 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #23 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-23-80.txt

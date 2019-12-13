@@ -1,0 +1,91 @@
+2019-12-13 22:18:10 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:R}(tamper{IP:ttl:replace:10},))-| \/ (ID vkii37b0) to port 80
+2019-12-13 22:18:10 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:18:10 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:10 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:18:10 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:10 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:18:10 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:18:10 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [S] 56467: 
+2019-12-13 22:18:10 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [S] 56467: 
+2019-12-13 22:18:10 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39706 [SA] 62399: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:18:10 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [A] 37185: 
+2019-12-13 22:18:10 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:R}(tamper{IP:ttl:replace:10},))-|
+2019-12-13 22:18:10 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [A] 37185: 
+2019-12-13 22:18:10 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to R)
+2019-12-13 22:18:10 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 22:18:10 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [A] 37185: 
+2019-12-13 22:18:10 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [R] None: 
+2019-12-13 22:18:10 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 15988: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:10 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 15988: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:11 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 15675: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:11 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 15675: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:11 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39694 --> 185.60.216.35:80 [FA] 38548: 
+2019-12-13 22:18:11 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39694 --> 185.60.216.35:80 [FA] 38548: 
+2019-12-13 22:18:11 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 15266: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:11 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 15266: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:12 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 44859: 
+2019-12-13 22:18:12 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 44859: 
+2019-12-13 22:18:12 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 14466: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:12 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 14466: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:13 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [FPA] 25449: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:13 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39692 --> 185.60.216.35:80 [FPA] 25449: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:13 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 12864: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:13 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 12864: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:14 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 14782: 
+2019-12-13 22:18:14 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 14782: 
+2019-12-13 22:18:14 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39696 --> 185.60.216.35:80 [FA] 51793: 
+2019-12-13 22:18:14 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39696 --> 185.60.216.35:80 [FA] 51793: 
+2019-12-13 22:18:16 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 40627: 
+2019-12-13 22:18:16 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 40627: 
+2019-12-13 22:18:16 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [FA] 57731: 
+2019-12-13 22:18:16 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [FA] 57731: 
+2019-12-13 22:18:17 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 9665: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:17 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 9665: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:18 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39700 --> 185.60.216.35:80 [FA] 51246: 
+2019-12-13 22:18:18 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39700 --> 185.60.216.35:80 [FA] 51246: 
+2019-12-13 22:18:21 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 2632: 
+2019-12-13 22:18:21 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [FA] 2632: 
+2019-12-13 22:18:22 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 6335: 
+2019-12-13 22:18:22 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 6335: 
+2019-12-13 22:18:23 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 36603: 
+2019-12-13 22:18:23 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39686 --> 185.60.216.35:80 [FA] 36603: 
+2019-12-13 22:18:23 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 3266: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:23 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 3266: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:24 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 32443: 
+2019-12-13 22:18:24 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 32443: 
+2019-12-13 22:18:25 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 20813: 
+2019-12-13 22:18:25 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39690 --> 185.60.216.35:80 [FA] 20813: 
+2019-12-13 22:18:29 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39694 --> 185.60.216.35:80 [FA] 20628: 
+2019-12-13 22:18:29 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39694 --> 185.60.216.35:80 [FA] 20628: 
+2019-12-13 22:18:31 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39696 --> 185.60.216.35:80 [FA] 34642: 
+2019-12-13 22:18:31 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39696 --> 185.60.216.35:80 [FA] 34642: 
+2019-12-13 22:18:33 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [FA] 40580: 
+2019-12-13 22:18:33 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39698 --> 185.60.216.35:80 [FA] 40580: 
+2019-12-13 22:18:35 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39700 --> 185.60.216.35:80 [FA] 34862: 
+2019-12-13 22:18:35 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39700 --> 185.60.216.35:80 [FA] 34862: 
+2019-12-13 22:18:36 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 56000: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:36 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39706 --> 185.60.216.35:80 [PA] 56000: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:18:39 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 54718: 
+2019-12-13 22:18:39 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39702 --> 185.60.216.35:80 [FA] 54718: 
+2019-12-13 22:18:40 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 16315: 
+2019-12-13 22:18:40 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39704 --> 185.60.216.35:80 [FA] 16315: 
+* Operation timed out after 30001 milliseconds with 0 bytes received
+* stopped the pause stream!
+* Closing connection 0
+2019-12-13 22:18:40 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:18:42 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:18:42 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:42 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:18:42 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:18:42 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #10 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-10-80.txt

@@ -1,0 +1,157 @@
+2019-12-13 22:17:16 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:dataofs:replace:10}(tamper{IP:ttl:replace:10},),)-| \/ (ID 15af6fvc) to port 80
+2019-12-13 22:17:16 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:17:16 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:16 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:16 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:16 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:16 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [S] 49058: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [S] 49058: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39688 [SA] 30436: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [A] 5218: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [A] 5218: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [PA] 49553: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:16 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:dataofs:replace:10}(tamper{IP:ttl:replace:10},),)-|
+2019-12-13 22:17:16 DEBUG:[ENGINE]   - Duplicating given packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [PA] 49553: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:16 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (8) by replace (to 10)
+2019-12-13 22:17:16 DEBUG:[ENGINE]   - Tampering IP field `ttl` (64) by replace (to 10)
+2019-12-13 22:17:16 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [PA] None: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:16 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [PA] 49553: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39688 [A] 5404: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39688 [A] 44298: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39688 [A] 51550: b'HTTP/1.1 400 Bad Request\r\nContent-Type: text/html; charset=utf-8\r\nDate: Fri, 13 Dec 2019 18:47:16 GMT\r\nConnection: close\r\nContent-Length: 2959\r\n\r\n<!DOCTYPE html>\n<html lang="en" id="facebook">\n  <head>\n    <title>Facebook | Error</title>\n    <meta charset="utf-8">\n    <meta http-equiv="cache-control" content="no-cache">\n    <meta http-equiv="cache-control" content="no-store">\n    <meta http-equiv="cache-control" content="max-age=0">\n    <meta http-equiv="expires" content="-1">\n    <meta http-equiv="pragma" content="no-cache">\n    <meta name="robots" content="noindex,nofollow">\n    <style>\n      html, body {\n        color: #141823;\n        background-color: #e9eaed;\n        font-family: Helvetica, Lucida Grande, Arial,\n                     Tahoma, Verdana, sans-serif;\n        margin: 0;\n        padding: 0;\n        text-align: center;\n      }\n\n      #header {\n        height: 30px;\n        padding-bottom: 10px;\n        padding-top: 10px;\n        text-align: center;\n      }\n\n      #icon {\n        width: 30px;\n      }\n\n      h1 {\n        font-size: 18px;\n      }\n\n      p {\n        font-size: 13px;\n      }\n\n      #footer {\n        border-top: 1px solid #ddd;\n        color: #9197a3;\n        font-size: 12px;\n        padding: 5px 8px 6px 0;\n      }\n    </style>\n  </head>\n  <body>\n    <div id="header">\n      <a href="//www.facebook.com/">\n        <img id="icon" src='
+< HTTP/1.1 400 Bad Request
+< Content-Type: text/html; charset=utf-8
+< Date: Fri, 13 Dec 2019 18:47:16 GMT
+< Connection: close
+< Content-Length: 2959
+< 
+{ [1232 bytes data]
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39688 [A] 58376: b'"//static.facebook.com/images/logos/facebook_2x.png" />\n      </a>\n    </div>\n    <div id="core">\n      <h1 id="sorry">Sorry, something went wrong.</h1>\n      <p id="promise">\n        We\'re working on it and we\'ll get it fixed as soon as we can.\n      </p>\n      <p id="back-link">\n        <a id="back" href="//www.facebook.com/">Go Back</a>\n      </p>\n      <div id="footer">\n        Facebook\n        <span id="copyright">\n          &copy; 2019\n        </span>\n        <span id="help-link">\n          &#183;\n          <a id="help" href="//www.facebook.com/help/">Help Center</a>\n        </span>\n      </div>\n    </div>\n    <script>\n      document.getElementById(\'back\').onclick = function() {\n        if (history.length > 1) {\n          history.back();\n          return false;\n        }\n      };\n\n      // Adjust the display based on the window size\n      if (window.innerHeight < 80 || window.innerWidth < 80) {\n        // Blank if window is too small\n        document.body.style.display = \'none\';\n      };\n      if (window.innerWidth < 200 || window.innerHeight < 150) {\n        document.getElementById(\'back-link\').style.display = \'none\';\n        document.getElementById(\'help-link\').style.display = \'none\';\n      };\n      if (window.innerWidth < 200) {\n        document.getElementById(\'sorry\').style.fontSize = \'16px\';\n      };\n      if (window.innerWidth < 150) {\n        '
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39688 [PA] 46163: b"document.getElementById('promise').style.display = 'none';\n      };\n      if (window.innerHeight < 150) {\n        document.getElementById('sorry').style.margin = '4px 0 0 0';\n        document.getElementById('sorry').style.fontSize = '14px';\n        document.getElementById('promise').style.display = 'none';\n      };\n    </script>\n  </body>\n</html>\n"
+* Closing connection 0
+<!DOCTYPE html>
+<html lang="en" id="facebook">
+  <head>
+    <title>Facebook | Error</title>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="cache-control" content="no-store">
+    <meta http-equiv="cache-control" content="max-age=0">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="robots" content="noindex,nofollow">
+    <style>
+      html, body {
+        color: #141823;
+        background-color: #e9eaed;
+        font-family: Helvetica, Lucida Grande, Arial,
+                     Tahoma, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #header {
+        height: 30px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-align: center;
+      }
+
+      #icon {
+        width: 30px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+
+      #footer {
+        border-top: 1px solid #ddd;
+        color: #9197a3;
+        font-size: 12px;
+        padding: 5px 8px 6px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <a href="//www.facebook.com/">
+        <img id="icon" src="//static.facebook.com/images/logos/facebook_2x.png" />
+      </a>
+    </div>
+    <div id="core">
+      <h1 id="sorry">Sorry, something went wrong.</h1>
+      <p id="promise">
+        We're working on it and we'll get it fixed as soon as we can.
+      </p>
+      <p id="back-link">
+        <a id="back" href="//www.facebook.com/">Go Back</a>
+      </p>
+      <div id="footer">
+        Facebook
+        <span id="copyright">
+          &copy; 2019
+        </span>
+        <span id="help-link">
+          &#183;
+          <a id="help" href="//www.facebook.com/help/">Help Center</a>
+        </span>
+      </div>
+    </div>
+    <script>
+      document.getElementById('back').onclick = function() {
+        if (history.length > 1) {
+          history.back();
+          return false;
+        }
+      };
+
+      // Adjust the display based on the window size
+      if (window.innerHeight < 80 || window.innerWidth < 80) {
+        // Blank if window is too small
+        document.body.style.display = 'none';
+      };
+      if (window.innerWidth < 200 || window.innerHeight < 150) {
+        document.getElementById('back-link').style.display = 'none';
+        document.getElementById('help-link').style.display = 'none';
+      };
+      if (window.innerWidth < 200) {
+        document.getElementById('sorry').style.fontSize = '16px';
+      };
+      if (window.innerWidth < 150) {
+        document.getElementById('promise').style.display = 'none';
+      };
+      if (window.innerHeight < 150) {
+        document.getElementById('sorry').style.margin = '4px 0 0 0';
+        document.getElementById('sorry').style.fontSize = '14px';
+        document.getElementById('promise').style.display = 'none';
+      };
+    </script>
+  </body>
+</html>
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received outbound packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [A] 3289: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 22:17:16 DEBUG:[ENGINE] Sending packet TCP 192.168.0.113:39688 --> 185.60.216.35:80 [A] 3289: 
+2019-12-13 22:17:16 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 192.168.0.113:39688 [FA] 2070: 
+2019-12-13 22:17:18 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 22:17:18 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:18 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 22:17:18 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 22:17:18 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #1 - On Port:80
+gonna run this: curl -vs http://facebook.com -m 30 2>&1 | tee /home/taesiri/workspace/geneva/logs/http--facebook.com-1-80.txt

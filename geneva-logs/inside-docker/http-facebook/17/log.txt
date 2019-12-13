@@ -1,0 +1,54 @@
+2019-12-13 17:59:45 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FRAPUN}(tamper{TCP:options-md5header:corrupt},))-| \/ (ID 24m81e34) to port 80
+2019-12-13 17:59:45 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:59:45 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:45 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:45 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:45 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:45 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://facebook.com/
+*   Trying 185.60.216.35...
+* TCP_NODELAY set
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [S] 43786: 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [S] 43786: 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49656 [SA] 40292: 
+* Connected to facebook.com (185.60.216.35) port 80 (#0)
+> GET / HTTP/1.1
+> Host: facebook.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [A] 51523: 
+2019-12-13 17:59:45 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FRAPUN}(tamper{TCP:options-md5header:corrupt},))-|
+2019-12-13 17:59:45 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [A] 51523: 
+2019-12-13 17:59:45 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to FRAPUN)
+2019-12-13 17:59:45 DEBUG:[ENGINE]   - Tampering TCP field `options-md5header` () by corrupt (to 05fbc85ba191fb298c2157f4869def58)
+2019-12-13 17:59:45 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [A] 51523: 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [FRPAUN] None: 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [PA] 30326: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:45 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [PA] 30326: b'GET / HTTP/1.1\r\nHost: facebook.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49656 [A] 51676: 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49656 [PA] 57466: b'HTTP/1.1 403 Forbidden\r\nDate: Fri, 13 Dec 2019 17:59:45 GMT\r\nConnection: close\r\n\r\n'
+< HTTP/1.1 403 Forbidden
+< Date: Fri, 13 Dec 2019 17:59:45 GMT
+< Connection: close
+< 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49656 [PA] 39687: b'<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>\r\n\r\n'
+{ [304 bytes data]
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received packet: TCP 185.60.216.35:80 --> 172.17.0.21:49656 [FA] 51289: 
+* Closing connection 0
+2019-12-13 17:59:45 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [A] 51365: 
+2019-12-13 17:59:45 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:A]-duplicate(,tamper{TCP:flags:replace:FRAPUN}(tamper{TCP:options-md5header:corrupt},))-|
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256"><title>FR10(1)</title></head><body><iframe src="http://10.10.34.35:80" style="width: 100%; height: 100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe></body></html>
+
+2019-12-13 17:59:45 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [A] 51365: 
+2019-12-13 17:59:45 DEBUG:[ENGINE]   - Tampering TCP field `flags` (A) by replace (to FRAPUN)
+2019-12-13 17:59:45 DEBUG:[ENGINE]   - Tampering TCP field `options-md5header` () by corrupt (to 93f25160e8d6ea225649965979603321)
+2019-12-13 17:59:45 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [A] 51365: 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Sending packet TCP 172.17.0.21:49656 --> 185.60.216.35:80 [FRPAUN] None: 
+2019-12-13 17:59:45 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 17:59:47 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 17:59:47 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:47 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 17:59:47 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 17:59:47 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://facebook.com - Using Strategy #17 - On Port:80

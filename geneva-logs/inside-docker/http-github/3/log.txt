@@ -1,0 +1,62 @@
+2019-12-13 18:14:07 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-| \/ (ID x5kdpz2n) to port 80
+2019-12-13 18:14:07 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:07 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:07 DEBUG:[ENGINE] iptables -A INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:07 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:07 DEBUG:[ENGINE] iptables -A INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:07 DEBUG:[ENGINE] NFQueue Initialized after 0
+* Rebuilt URL to: http://github.com/
+*   Trying 140.82.113.4...
+* TCP_NODELAY set
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [S] 26553: 
+2019-12-13 18:14:07 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [S] 26553: 
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47446 [SA] 64718: 
+* Connected to github.com (140.82.113.4) port 80 (#0)
+> GET / HTTP/1.1
+> Host: github.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [A] 10414: 
+2019-12-13 18:14:07 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [A] 10414: 
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] 8272: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 18:14:07 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] 8272: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 0)
+2019-12-13 18:14:07 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 18:14:07 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] None: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] 8272: b'GET / HTTP/1.1\r\nHost: github.com\r\nUser-Agent: curl/7.58.0\r\nAccept: */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47446 [A] 10577: 
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47446 [A] 10577: 
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] 48883: b' */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-duplicate(tamper{TCP:options-wscale:corrupt}(tamper{TCP:dataofs:replace:8},),)-|
+2019-12-13 18:14:07 DEBUG:[ENGINE]   - Duplicating given packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] 48883: b' */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE]   - Tampering TCP field `options-wscale` () by corrupt (to 166)
+2019-12-13 18:14:07 DEBUG:[ENGINE]   - Tampering TCP field `dataofs` (None) by replace (to 8)
+2019-12-13 18:14:07 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] None: b' */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [PA] 48883: b' */*\r\n\r\n'
+2019-12-13 18:14:07 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47446 [A] 10569: 
+2019-12-13 18:14:08 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47446 [PA] 51046: b"HTTP/1.0 400 Bad Request\r\nCache-Control: no-cache\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE html><title>Malformed request</title>\r\n<body>We didn't receive a proper request from your browser. Please contact us if the problem persists.</body>\r\n</html>\r\n"
+* HTTP 1.0, assume close after body
+< HTTP/1.0 400 Bad Request
+< Cache-Control: no-cache
+< Connection: close
+< Content-Type: text/html
+< 
+{ [169 bytes data]
+2019-12-13 18:14:08 DEBUG:[ENGINE] Received packet: TCP 140.82.113.4:80 --> 172.17.0.4:47446 [FA] 10302: 
+* Closing connection 0
+<!DOCTYPE html><title>Malformed request</title>
+<body>We didn't receive a proper request from your browser. Please contact us if the problem persists.</body>
+</html>
+2019-12-13 18:14:08 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [A] 10066: 
+2019-12-13 18:14:08 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [A] 10066: 
+2019-12-13 18:14:08 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [FA] 10064: 
+2019-12-13 18:14:08 DEBUG:[ENGINE] Sending packet TCP 172.17.0.4:47446 --> 140.82.113.4:80 [FA] 10064: 
+2019-12-13 18:14:08 DEBUG:[ENGINE] Shutting down NFQueue
+2019-12-13 18:14:10 DEBUG:[ENGINE] Configuring iptables rules
+2019-12-13 18:14:10 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:10 DEBUG:[ENGINE] iptables -D INPUT -p tcp --sport 80 -j NFQUEUE --queue-num 2
+2019-12-13 18:14:10 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --dport 80 -j NFQUEUE --queue-num 1
+2019-12-13 18:14:10 DEBUG:[ENGINE] iptables -D INPUT -p udp --sport 80 -j NFQUEUE --queue-num 2
+Website: http://github.com - Using Strategy #3 - On Port:80
